@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 20px auto;
+      font-family: "Segoe UI", sans-serif;
+      background: #ffffff;
+      text-align: center;
+      padding: 20px;
+      overflow-y: scroll;
+    }
+
+    body div {
+      width: 90vw;
+      height: 90vh;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .galery h3 {
+      height: 25px;
+      background: #d4a373;
+      font-size: 24px;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    body div.galery .img-holder {
+      width: calc(100% - 20px);
+      height: calc(100% / 3 - 70px);
+      display: flex;
+      gap: 10px;
+      margin: 0;
+      padding: 5px 10px;
+    }
+
+    body div.galery .img-holder img {
+      background: #ccc;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+
+    h1 {
+      font-size: 32px;
+    }
+
+    input,
+    textarea,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    input,
+    textarea {
+      width: calc(100% - 20px);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #d4a373;
+      outline: none;
+    }
+
+    button {
+      background: #d4a373;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b5835a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    body .hidden {
+      display: none;
+    }
+
+    .text p {
+      text-align: center justify;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .text p b {
+      font-size: 16px;
+      color: #d4a373;
+    }
+
+    .information h3 {
+      height: 25px;
+      width: 100%;
+      font-size: 24px;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      font-weight: bold;
+      width: 100%;
+      height: 25px;
+    }
+
+    .information #countdown {
+      height: fit-content;
+      width: calc(100% - 10px);
+      padding: 20px 5px;
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      background: #d4a373;
+      border-radius: 5px;
+    }
+
+    .information p {
+      height: fit-content;
+      width: calc(100% - 10px);
+      padding: 20px 5px;
+      margin-top: 10px;
+      font-size: 18px;
+      text-align: justify;
+      color: #333;
+      background: #d4a373;
+      border-radius: 5px;
+    }
+
+    button.play i{
+      color: white;
+    }
+
+    button i{
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    button::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      top: 22px;
+      right: 12px;
+      transform: rotate(45deg);
+      border-radius: 5px;
+      background: #333;
+      transition: all 0.3s ease;
+    }
+
+    button.play::after {
+      content: "";
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      top: 22px;
+      right: 12px;
+      transform: rotate(90deg);
+      border-radius: 5px;
+      background: #333;
+    }
+
+    .card{
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="background" style="position: relative; width: 100%; height: 100%; position: fixed;">
+    <img style="position: absolute; width: 200px; height: 75px; top: -5px; left: 50%; transform: translateX(-50%);"
+      src="./img/images (1).png" alt="" class="bg">
+    <img
+      style="position: absolute; width: 200px; height: 75px; bottom: 80px; left: 50%; transform: translateX(-50%) rotate(180deg);"
+      src="./img/images (1).png" alt="" class="bg">
+
+    <img
+      style="position: absolute; width: 200px; height: 75px; bottom: 70px; left: 0px; transform: translateX(-50%) rotate(45deg);"
+      src="./img/images (1).png" alt="" class="bg">
+    <img
+      style="position: absolute; width: 200px; height: 75px; bottom: 70px; right: 0px; transform: translateX(50%) rotate(-45deg);"
+      src="./img/images (1).png" alt="" class="bg">
+
+    <img
+      style="position: absolute; width: 200px; height: 75px; top: -20px; left: 5px; transform: translateX(-50%) rotate(145deg);"
+      src="./img/images (1).png" alt="" class="bg">
+    <img style="position: absolute; width: 200px; height: 75px; top: -20px; right: -110px; transform: rotate(-145deg);"
+      src="./img/images (1).png" alt="" class="bg">
+
+      <button class="" id="toggleMusic" style="width: 50px; height: 50px; background: #d4a373; border-radius: 50%; position: absolute; right: -40px; bottom: 190px; cursor: pointer;">
+        <i class="bi bi-music-note" style="font-size: 25px;"></i>
+      </button>
+  </div>
+
+
+  <audio id="music" loop>
+    <source src="./img/Westlife - Beautiful in white (Lyrics) [Trjrj_fQnIM].mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="card" id="formNama" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <img src="" alt="" />
+    <h2 style="
+          font-family: &quot;Times New Roman&quot;, Times, serif;
+          font-weight: normal;
+        ">
+      Kami Mengundang Anda untuk <br />datang di acara pernikahan <br /><i
+        style="font-size: 28px; font-weight: bold">Andi & Salsa</i>
+    </h2>
+    <input type="text" id="namaUser" placeholder="Tolong Masukan Nama Anda" />
+    <button onclick="lanjut()" style="font-size: 16px">Lihat Undangan</button>
+  </div>
+
+  <div class="text hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <p>
+      <b>Assalamualaikum Warahmatullahi Wabarakatuh</b>
+      <br />
+      Pernikahan adalah ibadah yang suci, sebagai jalan untuk menyempurnakan
+      separuh agama dan membangun keluarga yang sakinah, mawaddah, wa
+      rahmah.
+      <br />
+      <br />
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu
+      pasangan hidup dari jenismu sendiri, supaya kamu mendapatkan
+      ketenangan hati, dan dijadikan-Nya di antara kamu rasa kasih dan
+      sayang." (QS. Ar-Rum: 21)
+      <br />
+      <br />
+      Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud
+      menyelenggarakan acara pernikahan putra-putri kami:
+      <br />
+      <br />
+      <b style="
+              font-size: 25px;
+              font-family: &quot;Times New Roman&quot;, Times, serif;
+              font-style: italic;
+              color: black;
+            ">Andi Putra Pratama</b>
+      <br />
+      <i>Putra dari Bapak H. Pratama dan Ibu Rani</i>
+      <br />
+      <b style="
+              font-size: 35px;
+              font-family: &quot;Times New Roman&quot;, Times, serif;
+              font-style: italic;
+              color: black;
+            ">&</b>
+      <br />
+      <b style="
+              font-size: 25px;
+              font-family: &quot;Times New Roman&quot;, Times, serif;
+              font-style: italic;
+              color: black;
+            ">Salsa Dewi Aprilia</b>
+      <br />
+      <i>Putri dari Bapak Agus dan Ibu Salsa</i>
+      <br />
+      <br />
+      <p id="ucapan">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+      Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu.</p>
+      <br />
+      Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
+      <br />
+      <b>Wassalamualaikum Warahmatullahi Wabarakatuh</b>
+    </p>
+  </div>
+
+  <div class="galery hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <h3>Galeri</h3>
+    <div class="img-holder">
+      <img data-aos="fade-right" src="./img/m6.jpg" alt="Foto 1" style="width: calc(70% - 4px); object-position: top;" />
+      <img data-aos="fade-left" src="./img/m2.jpg" alt="Foto 2" style="width: calc(30% - 4px)" />
+    </div>
+    <div class="img-holder">
+      <img data-aos="fade-up" src="./img/m4.jpeg" alt="Foto 3" style="width: calc((100% / 3) - 4px)" />
+      <img data-aos="fade-down" src="./img/m5.jpg" alt="Foto 4" style="width: calc((100% / 3) - 4px)" />
+      <img data-aos="fade-up" src="./img/m8.jpg" alt="Foto 5" style="width: calc((100% / 3) - 4px); object-position: top;" />
+    </div>
+    <div class="img-holder">
+      <img data-aos="fade-right" src="./img/m7.jpg" alt="Foto 6" style="width: calc(30% - 4px)" />
+      <img data-aos="fade-left" src="./img/m9.jpg" alt="Foto 7" style="width: calc(70% - 4px)" />
+    </div>
+  </div>
+  <div class="information hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <h3>Hitung Mundur</h3>
+    <div class="countdown" id="countdown"></div>
+
+    <h3>Detail Acara</h3>
+    <p>
+      📍Tempat Acara : Gedung Serbaguna Cirebon<br />
+      📅Tanggal : 20 Mei 2026<br />
+      ⏰Waktu Acara : 10:00 WIB
+    </p>
+  </div>
+
+  <div class="rspv hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+    <h3 style="font-size: 30px; font-style: italic; line-height: normal">
+      RSVP
+    </h3>
+    <p>untuk mengetahui apakah <b id="namaUser"></b> akan hadir</p>
+    <form onsubmit="kirimRSVP(event)">
+      <input type="text" placeholder="Nama" required />
+      <textarea placeholder="Ucapan atau doa" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <p id="terimakasih" class="hidden">
+    Terima kasih atas konfirmasi Anda 💖
+  </p>
+  </div>
+
+  <script>
+    const music = document.getElementById('music');
+    const btn = document.getElementById('toggleMusic');
+
+    let isPlaying = false;
+
+    // fungsi play (dipanggil setelah user klik sesuatu)
+    function playMusic() {
+      music.play();
+      isPlaying = true;
+    }
+
+    // toggle button
+    btn.addEventListener('click', () => {
+      if (isPlaying) {
+        music.pause();
+        btn.classList.add('play');
+      } else {
+        music.play();
+        btn.classList.remove('play');
+      }
+      isPlaying = !isPlaying;
+    });
+
+    function lanjut() {
+      const nama = document.getElementById("namaUser").value;
+      if (!nama) {
+        alert("Silakan isi nama terlebih dahulu");
+        return;
+      }
+
+      document.getElementById("formNama").classList.add("hidden");
+      document.querySelectorAll(".text, .galery, .information, .rspv").forEach(el => el.classList.remove("hidden"));
+
+      document.getElementById("ucapan").innerText =
+        `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+      ${nama} berkenan hadir serta memberikan doa restu.`;
+
+      // Play music
+      document.getElementById("music").play();
+    }
+
+    function kirimRSVP(e) {
+      e.preventDefault();
+      document.getElementById("terimakasih").classList.remove("hidden");
+    }
+
+    // Countdown
+    const targetDate = new Date("May 20, 2026 10:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      countdownEl.innerHTML = `Menuju Hari Bahagia: ${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+    }, 1000);
+  </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 100,
+      once: false,
+      mirror: true
+    });
+
+    const card = document.querySelector(".card");
+
+    card.addEventListener("scroll", () => {
+      AOS.refreshHard();
+    });
+  </script>
+</body>
+
+</html>
