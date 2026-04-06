@@ -151,14 +151,15 @@
       border-radius: 5px;
     }
 
-    button.play i{
+    button.play i {
       color: white;
     }
 
-    button i{
+    button i {
       color: #333;
       transition: all 0.3s ease;
     }
+
     button::after {
       content: "";
       position: absolute;
@@ -184,7 +185,7 @@
       background: #333;
     }
 
-    .card{
+    .card {
       width: 400px;
       height: 400px;
       display: flex;
@@ -192,8 +193,6 @@
       align-items: center;
       justify-content: center;
     }
-
-
   </style>
 </head>
 
@@ -218,9 +217,10 @@
     <img style="position: absolute; width: 200px; height: 75px; top: -20px; right: -110px; transform: rotate(-145deg);"
       src="./img/images (1).png" alt="" class="bg">
 
-      <button class="" id="toggleMusic" style="width: 50px; height: 50px; background: #d4a373; border-radius: 50%; position: absolute; right: -40px; bottom: 190px; cursor: pointer;">
-        <i class="bi bi-music-note" style="font-size: 25px;"></i>
-      </button>
+    <button class="" id="toggleMusic"
+      style="width: 50px; height: 50px; background: #d4a373; border-radius: 50%; position: absolute; right: -40px; bottom: 190px; cursor: pointer;">
+      <i class="bi bi-music-note" style="font-size: 25px;"></i>
+    </button>
   </div>
 
 
@@ -241,7 +241,7 @@
     <button onclick="lanjut()" style="font-size: 16px">Lihat Undangan</button>
   </div>
 
-  <div class="text hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+  <div class="text hidden" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
     <p>
       <b>Assalamualaikum Warahmatullahi Wabarakatuh</b>
       <br />
@@ -286,25 +286,27 @@
       <i>Putri dari Bapak Agus dan Ibu Salsa</i>
       <br />
       <br />
-      <p id="ucapan">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+    <p id="ucapan">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
       Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu.</p>
-      <br />
-      Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
-      <br />
-      <b>Wassalamualaikum Warahmatullahi Wabarakatuh</b>
+    <br />
+    Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
+    <br />
+    <b>Wassalamualaikum Warahmatullahi Wabarakatuh</b>
     </p>
   </div>
 
   <div class="galery hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
     <h3>Galeri</h3>
     <div class="img-holder">
-      <img data-aos="fade-right" src="./img/m6.jpg" alt="Foto 1" style="width: calc(70% - 4px); object-position: top;" />
+      <img data-aos="fade-right" src="./img/m6.jpg" alt="Foto 1"
+        style="width: calc(70% - 4px); object-position: top;" />
       <img data-aos="fade-left" src="./img/m2.jpg" alt="Foto 2" style="width: calc(30% - 4px)" />
     </div>
     <div class="img-holder">
       <img data-aos="fade-up" src="./img/m4.jpeg" alt="Foto 3" style="width: calc((100% / 3) - 4px)" />
       <img data-aos="fade-down" src="./img/m5.jpg" alt="Foto 4" style="width: calc((100% / 3) - 4px)" />
-      <img data-aos="fade-up" src="./img/m8.jpg" alt="Foto 5" style="width: calc((100% / 3) - 4px); object-position: top;" />
+      <img data-aos="fade-up" src="./img/m8.jpg" alt="Foto 5"
+        style="width: calc((100% / 3) - 4px); object-position: top;" />
     </div>
     <div class="img-holder">
       <img data-aos="fade-right" src="./img/m7.jpg" alt="Foto 6" style="width: calc(30% - 4px)" />
@@ -380,6 +382,10 @@
 
       // Play music
       document.getElementById("music").play();
+
+      setTimeout(() => {
+        AOS.refreshHard();
+      }, 100);
     }
 
     function kirimRSVP(e) {
@@ -406,16 +412,32 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      offset: 100,
+      offset: 150,
       once: false,
       mirror: true
     });
 
-    const card = document.querySelector(".card");
+    function lanjut() {
+      const nama = document.getElementById("namaUser").value;
+      if (!nama) {
+        alert("Silakan isi nama terlebih dahulu");
+        return;
+      }
 
-    card.addEventListener("scroll", () => {
-      AOS.refreshHard();
-    });
+      document.getElementById("formNama").classList.add("hidden");
+      document.querySelectorAll(".text, .galery, .information, .rspv").forEach(el => el.classList.remove("hidden"));
+
+      document.getElementById("ucapan").innerText =
+        `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+      ${nama} berkenan hadir serta memberikan doa restu.`;
+
+      // Play music
+      document.getElementById("music").play();
+
+      setTimeout(() => {
+        AOS.refreshHard();
+      }, 100);
+    }
   </script>
 </body>
 
